@@ -89,7 +89,20 @@ for song in random_songs:
 print(f'Три песни звучат {sum_dlit_sec} минут')
 
 
-print("Пункт C для словаря.")
+print("Пункт C и D для словаря.")
+sum_dlit_sec_dict = datetime.timedelta()
+random_songs_dict = random.sample(list(my_favorite_songs_dict),3)
+#print(random_songs_dict)
+for song in random_songs_dict:
+  time_is_sec = str(my_favorite_songs_dict[song])
+  time_minutes = time_is_sec.split('.')[0]
+  time_seconds = time_is_sec.split('.')[1]
+  if len(time_seconds) == 1:
+    time_seconds = f'{time_seconds}0'
+  td = datetime.timedelta(minutes=int(time_minutes), seconds=int(time_seconds))
+  sum_dlit_sec_dict += td
+  
+print(f'Три песни звучат {sum_dlit_sec_dict} минут')
 
 
 
